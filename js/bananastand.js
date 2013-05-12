@@ -10,69 +10,33 @@ window.addEventListener('load',function(){
 
 bananastand.main = (function(){
 	// 'global' vars
-	var body,
-			output; // default location to output stuff
+	var body, nav, output;
 
 	function init (){
 		console.log('there\'s always money in the bananastand..');
 		body = document.getElementsByTagName('body')[0];
+		nav = document.getElementsByTagName('nav')[0].getElementsByTagName('li');
 
+		/* when you hover over an example the nav updates */
+		var experiments = document.getElementsByClassName('test');
+		for (var i = 0; i < experiments.length; i++) {
+			addListener('mouseover', experiments[i], updateNav);
+		};
 
 	}
 
+function updateNav(e) {
+	// trim off underscore: _01
+	var current = this.id.replace('_','');
 
+	// find the right nav element
+	for (var i = 0; i < nav.length; i++) {
+		if (nav[i].childNodes[0].innerText === current) nav[i].className+='here';
+	};
 
-
-
-	/* custom shit */
-	/* =================================== */
-	// navigator
-	function navigator() {
-		// 1. reads the ID of the <body>
-		// 2. finds the corresponding <nav> <li> to add class 'here' to
-		var here = document.getElementsByTagName('body')[0].id;
-
-		// addClass('here') to matching <nav> li
-		var nav = document.getElementsByTagName('header')[0].getElementsByTagName('nav')[0].getElementsByTagName('li');
-		for (var i = 0; i < nav.length; i++) {
-			if (nav[i].firstChild.firstChild.nodeValue === here) addClass('here', nav[i]);
-		}
-
-		return here;
-	}
-
-	// function gallery() {
-	// 	// set up the gallery page
-
-	// 	// 1. addeventlisteners
-	// 	// a. categories
-	// 	var categories = document.getElementsByClassName('categories')[0].getElementsByTagName('input');
-	// 	for (var i = 0; i < categories.length; i++) {
-	// 		addListener(categories[i], 'change', category_selection);
-	// 		if (categories[i].checked) addClass('selected', categories[i].parentNode);
-	// 	}
-	// 	// b. imgs
-	// 	var imgs = document.getElementsByClassName('gallery')[0].getElementsByTagName('img');
-	// 	for (var j = 0; j < imgs.length; j++) {
-	// 		addListener(imgs[j], 'click', showcase);
-	// 	}
-	// 	// hook stuff up
-	// }
-
-	// function category_selection(e) {
-	// 	// update UI
-	// 	document.getElementsByClassName('categories')[0].getElementsByClassName('selected')[0].className = '';
-	// 	e.target.parentNode.className += 'selected';
-
-	// 	console.log(e.target.value);
-	// }
-
-
-	// function showcase(e) {
-	// 	console.log('showcase\n'+e);
-	// }
-
-
+	// prevent this happening a hella amount of times
+	this.removeEventListener('mouseover', updateNav, false);
+}
 
 
 
@@ -80,6 +44,7 @@ bananastand.main = (function(){
 	/* =================================== */
 	/* add event listener */ // credit to roxik, Masayuki Kido. roxik.com/cat
 	function addListener( _event_string, _element, _func ) {
+		if (_event_string === 'hover') _event_string = 'mouseover'; // because why isn't it just hover?
 		// Chrome, FF, O, Safari
 		if( _element.addEventListener ) _element.addEventListener( _event_string, _func, false );
 		// IE
@@ -108,96 +73,6 @@ bananastand.main = (function(){
 		}
 		return ele;
 	}
-
-/* addClass */
-// function addClass(_class, _element) {
-// 	// variables
-// 	var className = "", // string to hold className to add
-// 			classExists = false; // boolean to check if the class already exists
-// 	var classes = _element.className.split(" ");
-
-
-// 	if (classes[0] === "") { /* element has no classes. add class name */ }
-// 	else {
-// 		/* element has existing classes */
-// 		className += " "; // for appropriate spacing
-// 		/* check if the class already exists */
-// 		for (var i = 0; i < classes.length; i++) {
-// 			if (classes[i] === _class) { classExists = true; } // class exists, do nothing
-// 		}
-// 	}
-
-// 	// if className does not exist, add new className
-// 	if (!classExists) {
-// 		className += _class;
-// 		_element.className += className;
-// 	}
-// } // end addClass
-
-
-
-/* removeClass */
-// function removeClass(_element, _class) {
-	// variables
-	// var classExists = false, // boolean to check if the class already exists
-			// classRef; // will hold the array reference if the element exits
-	// var classes = _element.className.split(" ");
-
-
-	// if (classes[0] === "") { /* element has no classes. do nothing */ }
-	// else {
-		/* element has existing classes, check if the class exists */
-		// for (var i = 0; i < classes.length; i++) {
-			// if (classes[i] === _class) {
-				// classExists = true;
-				// classRef = i;
-			// }
-		// }
-	// }
-
-	// if className exists, remove the className
-	// if (classExists) {
-		// classes.splice(classRef);
-		// _element.className = classes;
-	// }
-// } // end removeClass
-
-
-/* AJAX */
-// load
-// function load(_uri) {
-//   var currentRequest = null;
-
-//   // not IE
-//   if ( window.XMLHttpRequest ) {currentRequest = new XMLHttpRequest(); }
-//   // IE only
-//   else if ( window.ActiveXObject ) {currentRequest = new ActiveXObject( "Microsoft.XMLHTTP" ); }
-
-//   if ( currentRequest !== null ) {   // able to get a request object
-//     currentRequest.onreadystatechange = function() {
-//       checkLoadStatus(currentRequest);
-//     };
-//     currentRequest.open( "GET", _uri, true );  // true means non-blocking/asynchronous I/O
-//     currentRequest.send( "" );
-//   }
-//   else {
-//     console.log("error obtaining request object...");
-//   }
-// }
-
-// check load status
-// function checkLoadStatus( _request ) {
-//   if ( _request.readyState == 4 ) { // if _request state is "loaded"
-//     if ( _request.status == 200 ) {  // if status code is "OK"
-// 			// content loaded
-// 			// parseData(_request.responseText);
-// 			console.log('lol. AJAX');
-//     }
-//     else {
-// 			console.log("something went wrong. checkLoadStatus()");
-//     }
-//   }
-// }
 
 
 	// ===================================
