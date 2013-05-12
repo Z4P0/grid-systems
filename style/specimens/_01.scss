@@ -1,0 +1,50 @@
+/* 01 */
+#_01 {
+	@extend .cf;
+	header {margin-bottom: 2.25em; }
+	article {
+		.columns {
+			-webkit-column-gap: 2em;
+			-moz-column-gap: 2em;
+			column-gap: 2em;			
+			-webkit-column-count: 2;
+			-moz-column-count: 2;
+			column-count: 2;
+		}
+		@include mq(netbook) {
+			width: 48%;
+			float: left;
+		}
+	}
+	aside {
+		text-align: center;
+		img {
+			margin-bottom: 1em;
+			-webkit-filter: grayscale(100%);
+			&:hover {
+				-webkit-filter: none;
+				cursor: pointer;
+			}
+			@include transition(-webkit-filter, 0.3s);
+		}
+		@include mq(netbook) {
+			width: 48%;
+			float: right;			
+		}
+	}
+}
+#two_images {
+	@extend .cf;
+	max-width: 400px;
+	margin: 0 auto;
+	img {
+		&:first-child {
+			width: 48%;
+			float: left;
+		}
+		&:last-child {
+			width: 48%;
+			float: right;
+		}
+	}
+}

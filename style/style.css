@@ -1,0 +1,264 @@
+/* normalize.css v2.1.0 | MIT License | git.io/normalize */
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary {
+  display: block;
+}
+
+audio, canvas, video {
+  display: inline-block;
+}
+
+[hidden] {
+  display: none;
+}
+
+html {
+  font-family: sans-serif;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+a:focus {
+  outline: thin dotted;
+}
+
+a:active, a:hover {
+  outline: 0;
+}
+
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+b, strong {
+  font-weight: bold;
+}
+
+dfn {
+  font-style: italic;
+}
+
+hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+}
+
+q {
+  quotes: "\201C" "\201D" "\2018" "\2019";
+}
+
+small {
+  font-size: 80%;
+}
+
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+img {
+  border: 0;
+}
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+/* base styles */
+body {
+  -webkit-font-smoothing: antialiased;
+  font: 100% "Helvetica Neue", Verdana, Arial, sans-serif;
+  line-height: 1.4;
+  color: #333;
+}
+
+p {
+  max-width: 35em;
+  margin: 0 0 1em;
+}
+
+ul {
+  padding-left: 0;
+}
+
+input {
+  margin-bottom: 1em;
+}
+
+.wrapper {
+  position: relative;
+  width: 80%;
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+.cf:before, #_01:before, #two_images:before,
+.cf:after,
+#_01:after,
+#two_images:after {
+  content: " ";
+  display: table;
+}
+
+.cf:after, #_01:after, #two_images:after {
+  clear: both;
+}
+
+.inline, .inline li {
+  display: inline-block;
+}
+
+.assistive-text {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+.assistive-text:active,
+.assistive-text:focus {
+  background: #eee;
+  border-bottom: 1px solid #dddddd;
+  color: #1982d1;
+  clip: auto !important;
+  font-size: 12px;
+  position: absolute;
+  text-decoration: underline;
+  top: 0;
+  left: 7.6%;
+}
+
+/* nav styles */
+.here {
+  color: #333333;
+  position: relative;
+}
+.here:before {
+  content: "\00a0";
+  background: #333333;
+  width: 0;
+  position: absolute;
+  left: 0;
+  -webkit-transition: width 0.1s ease-out;
+  -moz-transition: width 0.1s ease-out;
+  -o-transition: width 0.1s ease-out;
+  transition: width 0.1s ease-out;
+}
+.here:hover:before {
+  width: 4px;
+}
+
+nav {
+  position: fixed;
+  left: 0;
+}
+nav ul {
+  margin: 0;
+  list-style-type: none;
+  font-weight: bold;
+}
+nav li {
+  padding: 0.25em 0.375em 0.25em 0.75em;
+  color: #bbb;
+  -webkit-transition: color 0.2s ease-out;
+  -moz-transition: color 0.2s ease-out;
+  -o-transition: color 0.2s ease-out;
+  transition: color 0.2s ease-out;
+}
+nav li:hover {
+  color: #333333;
+}
+nav li:last-child {
+  margin-bottom: 0;
+}
+nav a {
+  color: inherit;
+  width: 100%;
+  display: inline-block;
+  text-decoration: none;
+}
+
+footer {
+  margin-top: 8em;
+  font-size: 0.75em;
+}
+
+.test img {
+  max-width: 100%;
+}
+.test a {
+  color: inherit;
+}
+
+/* 01 */
+#_01 header {
+  margin-bottom: 2.25em;
+}
+#_01 article .columns {
+  -webkit-column-gap: 2em;
+  -moz-column-gap: 2em;
+  column-gap: 2em;
+  -webkit-column-count: 2;
+  -moz-column-count: 2;
+  column-count: 2;
+}
+@media only screen and (min-width: 768px) {
+  #_01 article {
+    width: 48%;
+    float: left;
+  }
+}
+#_01 aside {
+  text-align: center;
+}
+#_01 aside img {
+  margin-bottom: 1em;
+  -webkit-filter: grayscale(100%);
+  -webkit-transition: -webkit-filter 0.3s ease-out;
+  -moz-transition: -webkit-filter 0.3s ease-out;
+  -o-transition: -webkit-filter 0.3s ease-out;
+  transition: -webkit-filter 0.3s ease-out;
+}
+#_01 aside img:hover {
+  -webkit-filter: none;
+  cursor: pointer;
+}
+@media only screen and (min-width: 768px) {
+  #_01 aside {
+    width: 48%;
+    float: right;
+  }
+}
+
+#two_images {
+  max-width: 400px;
+  margin: 0 auto;
+}
+#two_images img:first-child {
+  width: 48%;
+  float: left;
+}
+#two_images img:last-child {
+  width: 48%;
+  float: right;
+}

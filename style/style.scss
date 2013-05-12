@@ -5,3 +5,19 @@
 /* base styles */
 @import "pieces/base";
 @import "pieces/classes";
+@import "pieces/nav";
+
+footer {
+	margin-top: 8em;
+	font-size: 0.75em;
+}
+
+
+
+.test{
+	img {max-width: 100%;}
+	a {color: inherit;}
+}
+
+// specimens (experiments)
+@import "specimens/01";

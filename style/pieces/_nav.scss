@@ -1,0 +1,37 @@
+/* nav styles */
+.here {
+	color: $text;
+	position: relative;
+	&:before {
+		content: "\00a0";
+		background: $text;
+		width: 0;
+		position: absolute;
+		left: 0;
+		@include transition(width, 0.1s);
+	}
+	// show marker on hover
+	&:hover {&:before {width: 4px;} }
+}
+nav {
+	position: fixed;
+	left: 0;
+	ul {
+		margin: 0;
+		list-style-type: none;
+		font-weight: bold;
+	}
+	li {
+		padding: 0.25em 0.375em 0.25em 0.75em;
+		color: #bbb;
+		&:hover {color: $text;}
+		&:last-child {margin-bottom: 0;}
+		@include transition(color, 0.2s);
+	}
+	a {
+		color: inherit;
+		width: 100%;
+		display: inline-block;
+		text-decoration: none;
+	}
+}
